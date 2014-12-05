@@ -1,0 +1,100 @@
+body{
+  width:70%;
+  margin:auto;
+  font-family: 'Lato', sans-serif;
+  color: #2C3E50;
+  text-align:center;
+  background-color:#ECF0F1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald';
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+}
+
+a {color: #2980B9;}
+a:active, a:hover {color: #E74C3C;}
+/*a:visited {color: #85144B;}*/
+
+/*.line {
+  text-align:left;
+}*/
+.num{
+  display: inline-block;
+  width: 1.75rem;
+  font-size:18px;
+  text-align:center;
+}
+
+.count{
+  display: inline-block;
+  width: 2rem;
+  background-color: #DDDDDD;
+  margin-left: 1rem;
+  padding: .3rem;
+  text-align: center;
+  border-radius: 30px;
+  vertical-align: middle;
+}
+
+.headline {
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #DDDDDD;
+  padding:.25rem;
+  width:80%;
+  outline: none;
+  text-align:left;
+  font-size:16px;
+}
+
+.feedback{
+  border: none;
+  background-color: #3498DB;
+  color: #FFF;
+  padding:.5rem .5rem;
+  width:60%;
+  outline: none;
+  text-align:center;
+  font-size:16px;
+  border-radius:4px;
+  cursor:pointer;
+
+}
+
+.feedback:hover {
+  background-color:#2980B9;
+}
+
+.reset{
+  border: none;
+  background-color: #E74C3C;
+  color: #FFF;
+  padding:.5rem .5rem;
+  width:30%;
+  outline: none;
+  text-align:center;
+  font-size:16px;
+  border-radius:4px;
+  cursor:pointer;
+
+}
+
+.reset:hover {
+  background-color:#B91E0E;
+}
+
+@media only screen and (max-width: 767px) {
+  /* phones */
+  .count {display:none;}
+  body{width:95%;}
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+  /* portrait phones */
+  .count {display:none;}
+  body{width:95%;}
+}
