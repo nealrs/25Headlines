@@ -125,19 +125,25 @@ a.sel:hover, .sela {
   border: none;
   background-color: #E74C3C;
   color: #FFF;
-  padding:.5rem .5rem;
-  width:30%;
+  padding: .5rem 2rem;
+  width:50%;
   outline: none;
   text-align:center;
   font-size:16px;
   border-radius:4px;
   cursor:pointer;
-
 }
 
-.reset:hover {
+a.reset {
+  text-decoration:none;
+  color:#FFF;
+}
+
+a.reset:hover {
   background-color:#B91E0E;
 }
+
+/*------------------------------------------*/
 
 @media only screen and (max-width: 767px) {
   /* phones */

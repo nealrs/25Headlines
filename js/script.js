@@ -20,7 +20,7 @@ String.prototype.toTitleCase = function(){
     });
   };
 
-/*----------------------------------------------------------------*/
+/*------------And now, the stuff I actually wrote myself.-----------*/
 
 $( document ).ready(function() {
   console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
@@ -33,15 +33,22 @@ $( document ).ready(function() {
   y=hy; o=ho; r=hr; $('input').attr('maxlength', r);
   yc="#f1c40f"; oc="#e67e22"; rc="#E74C3C"; tc="transparent";
 
+  // restore form data -- if available & recheck triggers!
+  getData();
+
+  // debounced keyup handler for color checking & title casing & autosaving to localStorage
   $('.hl').on('keyup', _.debounce(function (e) {
     colorCheck($(this));
     $(this).val($(this).val().toTitleCase());
+    saveData();
   }, 100));
 
+  // un-debounced keyup handler for character counting
   $('.hl').on('keyup', function(){
     $(this).next(".count")[0].innerText = $(this).val().length;
   });
 
+  // handler for content type switching. also changes char counts & re-runs colorCheck.
   $(".sel").on('click', function(){
     $(".sel").removeClass("sela");
     $(this).addClass("sela");
@@ -70,19 +77,20 @@ $( document ).ready(function() {
       $('#contentType').text("Subject lines");
     }
 
-    // recolor check all inputs against length triggers
-    $('.hl').each(function(k,v){
-      //console.log($(this));
-      colorCheck($(this));
-    });
+    // recheck all inputs against length triggers
+    colorCheckAll();
+  });
+
+  // handler for reset button.
+  $("#reset").on('click', function(){
+    $('form')[0].reset();
+    clearData();
   });
 
 });
 
-
+// length based color checking
 function colorCheck(e){
-  //console.log(e);
-
   if (e.val().length >= y && e.val().length < o){
     e.css("background-color", yc);
   }
@@ -95,4 +103,52 @@ function colorCheck(e){
   if (e.val().length < y){
     e.css("background-color", tc);
   }
+}
+
+function colorCheckAll(){
+  $('.hl').each(function(k,v){
+    colorCheck($(this));
+  });
+}
+
+jQuery.fn.serializeObject = function () {
+  var formData = {};
+  var formArray = this.serializeArray();
+
+  for(var i = 0, n = formArray.length; i < n; ++i)
+    formData[formArray[i].name] = formArray[i].value;
+
+    return formData;
+  };
+
+// save form data to localstorage
+function saveData(){
+  var data = $('#form').serializeObject();
+  console.log(data);
+  localStorage.setItem('data', JSON.stringify(data));
+}
+
+// restore form data & app state from localstorage
+function getData(){
+  var data = JSON.parse(localStorage.getItem('data'));
+  console.log(data);
+
+  if (data){
+    console.log("ok, we found some data!");
+
+    $('.hl').each(function(k,v){
+      v.value = data["h"+(k+1)];
+      $(this).next(".count")[0].innerText = $(this).val().length;
+    });
+    colorCheckAll();
+  } else { console.log("womp womp - no data here.");}
+}
+
+// reset form data & localstorage & app state.
+function clearData(){
+  localStorage.clear();
+  colorCheckAll();
+  $(".count").each(function(k,v){
+    v.innerText="0";
+  });
 }
