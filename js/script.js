@@ -24,6 +24,7 @@ String.prototype.toTitleCase = function(){
 
 $( document ).ready(function() {
   console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
+  teaser();
 
   // length triggers y - long, o - too long, r - max
   hy=50; ho=62; hr=100; //headline
@@ -50,6 +51,7 @@ $( document ).ready(function() {
 
   // handler for content type switching. also changes char counts & re-runs colorCheck.
   $(".sel").on('click', function(){
+    teaser();
     $(".sel").removeClass("sela");
     $(this).addClass("sela");
 
@@ -81,10 +83,25 @@ $( document ).ready(function() {
     colorCheckAll();
   });
 
-  // handler for reset button.
+  // handler for reset button
   $("#reset").on('click', function(){
     $('form')[0].reset();
     clearData();
+  });
+
+  // handler for download button
+  $("#download").on('click', function(){
+    // http://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
+
+    var pl=new Date().toLocaleString()+" | 25 Headlines | Made by Neal Shyam\n\n";
+    $('.hl').each(function(k,v){
+      pl += (k+1) +". "+ v.value+"\n";
+    });
+
+    var dl = document.createElement('a');
+    dl.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(pl));
+    dl.setAttribute('download', "25Headlines.txt");
+    dl.click();
   });
 
 });
@@ -124,7 +141,7 @@ jQuery.fn.serializeObject = function () {
 // save form data to localstorage
 function saveData(){
   var data = $('#form').serializeObject();
-  console.log(data);
+  //console.log(data);
   localStorage.setItem('data', JSON.stringify(data));
 }
 
@@ -135,7 +152,6 @@ function getData(){
 
   if (data){
     console.log("ok, we found some data!");
-
     $('.hl').each(function(k,v){
       v.value = data["h"+(k+1)];
       $(this).next(".count")[0].innerText = $(this).val().length;
@@ -151,4 +167,17 @@ function clearData(){
   $(".count").each(function(k,v){
     v.innerText="0";
   });
+}
+
+// teaser changer
+function teaser(){
+  t=[
+  "You gotta kiss a few frogs, #amirite?",
+  "The social juice is worth the squeeze.",
+  "There's always another angle.",
+  "Copywriters aren't born. They practice.",
+  "Want more clicks? Practice your pitch.",
+  "They won't all be great, but one will."
+  ];
+  $("#teaser").text(t[Math.floor((Math.random() * t.length))]);
 }

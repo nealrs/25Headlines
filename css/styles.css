@@ -61,7 +61,7 @@ a.sel:hover, .sela {
   margin-left: 1rem;
   padding: .3rem;
   text-align: center;
-  border-radius: 30px;
+  border-radius: 4px;
   vertical-align: middle;
 }
 
@@ -91,7 +91,7 @@ a.sel:hover, .sela {
   width: 2rem;
   padding: .3rem;
   text-align: center;
-  border-radius: 30px;
+  border-radius: 4px;
   vertical-align: middle;
 }
 
@@ -122,7 +122,7 @@ a.sel:hover, .sela {
   background-color: #E74C3C;
   color: #FFF;
   padding: .5rem 2rem;
-  width:50%;
+  width:40%;
   outline: none;
   text-align:center;
   font-size:16px;
@@ -137,6 +137,28 @@ a.reset {
 
 a.reset:hover {
   background-color:#B91E0E;
+}
+
+.download {
+  border: none;
+  background-color: #3498DB;
+  color: #FFF;
+  padding: .5rem 2rem;
+  width:30%;
+  outline: none;
+  text-align:center;
+  font-size:16px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+a.download {
+  text-decoration:none;
+  color:#FFF;
+}
+
+a.download:hover {
+  background-color:#2980B9;
 }
 
 /*------------------------------------------*/
