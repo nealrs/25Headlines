@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='http://fonts.googleapis.com/css?family=Oswald:400|Lato:500' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,40 +18,56 @@
 </head>
 
 <body>
-  <h2>25 Headlines</h2>
+  <h1>25 <span id="contentType">Headlines</span></h1>
   <h3>Be creative and get more clicks.</h3>
-  <p>Inspired by <a href="http://www.slideshare.net/Upworthy/upworthy-10-ways-to-win-the-internets" target="_blank" title="Adam is one of the Upworthy guys, duh.">Upworthy</a> &middot; Made by <a href="http://nealshyam.com" target="_blank" title="Neal Shyam is an awesome dude!">Neal</a></p>
+  <p>Inspired by <a href="http://www.slideshare.net/Upworthy/upworthy-10-ways-to-win-the-internets" target="_blank" title="Adam is one of the Upworthy guys, duh.">Upworthy</a> &amp; <a href="https://blog.kissmetrics.com/ultimate-home-page-headline/" target="_blank" title="KISSmetrics runs an excellent blog">KissMetrics</a> &middot; Made by <a href="http://nealshyam.com" target="_blank" title="Neal Shyam is an awesome dude!">Neal</a></p>
+
+  <div id="selectors">
+    <h4>
+      <a id="selh" class="sel sela"  title="" target="_blank">Headlines</a>
+      <a id="selt" class="sel"  title="" target="_blank">Tweets</a>
+      <a id="sele" class="sel"  title="" target="_blank">Emails</a>
+  </h4>
+  </div>
+
+  <div>
+    <p>
+      <span class="length"><span id="len1" class="len leny">50</span> eh, ok.</span>
+      <span class="length"><span id="len2" class="len leno">62</span> too long.</span>
+      <span class="length"><span id="len3" class="len lenr">100</span> whoa nelly!</span>
+    </p>
+  </div>
 
   <form>
-    <div class="line"><span class="num">1.</span><input type="text" class="headline" id="h1" required autofocus maxlength="100" placeholder="Who Else Wants a Killer Robot?"  name="h1"/><span class="count">0</span></p>
-    <div class="line"><span class="num">2.</span><input type="text" class="headline" id="h2" required autofocus maxlength="100" placeholder="The Secret of Giant Pandas"  name="h2"/><span class="count">0</span></p>
-    <div class="line"><span class="num">3.</span><input type="text" class="headline" id="h3" required autofocus maxlength="100" placeholder="Here is a Method That is Helping Bros to Recover"  name="h3"/><span class="count">0</span></p>
-    <div class="line"><span class="num">4.</span><input type="text" class="headline" id="h4" required autofocus maxlength="100" placeholder="Little Known Ways to Nurse Your Cat"  name="h4"/><span class="count">0</span></p>
-    <div class="line"><span class="num">5.</span><input type="text" class="headline" id="h5" required autofocus maxlength="100" placeholder="Get Rid of Maroon 5 Once and For All"  name="h5"/><span class="count">0</span></p>
+    <div class="line"><span class="num">1.</span><input type="text" class="hl" id="h1" required autofocus placeholder="Who Else Wants a Killer Robot?"  name="h1"/><span class="count">0</span></p>
+    <div class="line"><span class="num">2.</span><input type="text" class="hl" id="h2" required  placeholder="The Secret of Giant Pandas"  name="h2"/><span class="count">0</span></p>
+    <div class="line"><span class="num">3.</span><input type="text" class="hl" id="h3" required  placeholder="Here is a Method That is Helping Bros to Recover"  name="h3"/><span class="count">0</span></p>
+    <div class="line"><span class="num">4.</span><input type="text" class="hl" id="h4" required  placeholder="Little Known Ways to Nurse Your Cat"  name="h4"/><span class="count">0</span></p>
+    <div class="line"><span class="num">5.</span><input type="text" class="hl" id="h5" required  placeholder="Get Rid of Maroon 5 Once and For All"  name="h5"/><span class="count">0</span></p>
 
-    <div class="line"><span class="num">6.</span><input type="text" class="headline" id="h6" required autofocus maxlength="100" placeholder="Here’s a Quick Way to World Bono"  name="h6"/><span class="count">0</span></p>
-    <div class="line"><span class="num">7.</span><input type="text" class="headline" id="h7" required autofocus maxlength="100" placeholder="Now You Can Have a Great Body Without Paying Too Much"  name="h7"/><span class="count">0</span></p>
-    <div class="line"><span class="num">8.</span><input type="text" class="headline" id="h8" required autofocus maxlength="100" placeholder="Crush Watermelons like Gallagher"  name="h8"/><span class="count">0</span></p>
-    <div class="line"><span class="num">9.</span><input type="text" class="headline" id="h9" required autofocus maxlength="100" placeholder="Buy a Yacht You Can Be Proud Of"  name="h9"/><span class="count">0</span></p>
-    <div class="line"><span class="num">10.</span><input type="text" class="headline" id="h10" required autofocus maxlength="100" placeholder="What Everybody Ought to Know About Spiders"  name="h10"/><span class="count">0</span></p>
+    <div class="line"><span class="num">6.</span><input type="text" class="hl" id="h6" required  placeholder="Here’s a Quick Way to World Bono"  name="h6"/><span class="count">0</span></p>
+    <div class="line"><span class="num">7.</span><input type="text" class="hl" id="h7" required  placeholder="Now You Can Have a Great Body Without Paying Too Much"  name="h7"/><span class="count">0</span></p>
+    <div class="line"><span class="num">8.</span><input type="text" class="hl" id="h8" required  placeholder="Crush Watermelons like Gallagher"  name="h8"/><span class="count">0</span></p>
+    <div class="line"><span class="num">9.</span><input type="text" class="hl" id="h9" required  placeholder="Buy a Yacht You Can Be Proud Of"  name="h9"/><span class="count">0</span></p>
+    <div class="line"><span class="num">10.</span><input type="text" class="hl" id="h10" required  placeholder="What Everybody Ought to Know About Spiders"  name="h10"/><span class="count">0</span></p>
 
-    <div class="line"><span class="num">11.</span><input type="text" class="headline" id="h11" required autofocus maxlength="100" placeholder="100 Ways to Cook Butter"  name="h11"/><span class="count">0</span></p>
-    <div class="line"><span class="num">12.</span><input type="text" class="headline" id="h12" required autofocus maxlength="100" placeholder="He Took the Road Less Traveled - You'll Never Guess What Happended Next"  name="h12"/><span class="count">0</span></p>
-    <div class="line"><span class="num">13.</span><input type="text" class="headline" id="h13" required autofocus maxlength="100" placeholder="You'll Never Beleive This Etymology Professor's Last Name"  name="h13"/><span class="count">0</span></p>
-    <div class="line"><span class="num">14.</span><input type="text" class="headline" id="h14" required autofocus maxlength="100" placeholder="sdf"  name="h14"/><span class="count">0</span></p>
-    <div class="line"><span class="num">15.</span><input type="text" class="headline" id="h15" required autofocus maxlength="100" placeholder="sdf"  name="h5"/><span class="count">0</span></p>
+    <div class="line"><span class="num">11.</span><input type="text" class="hl" id="h11" required  placeholder="100 Ways to Cook Butter"  name="h11"/><span class="count">0</span></p>
+    <div class="line"><span class="num">12.</span><input type="text" class="hl" id="h12" required  placeholder="He Took the Road Less Traveled - You'll Never Guess What Happended Next"  name="h12"/><span class="count">0</span></p>
+    <div class="line"><span class="num">13.</span><input type="text" class="hl" id="h13" required  placeholder="You'll Never Beleive This Etymology Professor's Last Name"  name="h13"/><span class="count">0</span></p>
+    <div class="line"><span class="num">14.</span><input type="text" class="hl" id="h14" required  placeholder="sdf"  name="h14"/><span class="count">0</span></p>
+    <div class="line"><span class="num">15.</span><input type="text" class="hl" id="h15" required  placeholder="sdf"  name="h15"/><span class="count">0</span></p>
 
-    <div class="line"><span class="num">16.</span><input type="text" class="headline" id="h16" required autofocus maxlength="100" placeholder="sdf"  name="h16"/><span class="count">0</span></p>
-    <div class="line"><span class="num">17.</span><input type="text" class="headline" id="h17" required autofocus maxlength="100" placeholder="sdf"  name="h17"/><span class="count">0</span></p>
-    <div class="line"><span class="num">18.</span><input type="text" class="headline" id="h18" required autofocus maxlength="100" placeholder="sdf"  name="h18"/><span class="count">0</span></p>
-    <div class="line"><span class="num">19.</span><input type="text" class="headline" id="h19" required autofocus maxlength="100" placeholder="sdf"  name="h19"/><span class="count">0</span></p>
-    <div class="line"><span class="num">20.</span><input type="text" class="headline" id="h20" required autofocus maxlength="100" placeholder="sdf"  name="h20"/><span class="count">0</span></p>
+    <div class="line"><span class="num">16.</span><input type="text" class="hl" id="h16" required  placeholder="sdf"  name="h16"/><span class="count">0</span></p>
+    <div class="line"><span class="num">17.</span><input type="text" class="hl" id="h17" required  placeholder="sdf"  name="h17"/><span class="count">0</span></p>
+    <div class="line"><span class="num">18.</span><input type="text" class="hl" id="h18" required  placeholder="sdf"  name="h18"/><span class="count">0</span></p>
+    <div class="line"><span class="num">19.</span><input type="text" class="hl" id="h19" required  placeholder="sdf"  name="h19"/><span class="count">0</span></p>
+    <div class="line"><span class="num">20.</span><input type="text" class="hl" id="h20" required  placeholder="sdf"  name="h20"/><span class="count">0</span></p>
 
-    <div class="line"><span class="num">21.</span><input type="text" class="headline" id="h21" required autofocus maxlength="100" placeholder="sdf"  name="h21"/><span class="count">0</span></p>
-    <div class="line"><span class="num">22.</span><input type="text" class="headline" id="h22" required autofocus maxlength="100" placeholder="sdf"  name="h22"/><span class="count">0</span></p>
-    <div class="line"><span class="num">23.</span><input type="text" class="headline" id="h23" required autofocus maxlength="100" placeholder="sdf"  name="h23"/><span class="count">0</span></p>
-    <div class="line"><span class="num">24.</span><input type="text" class="headline" id="h24" required autofocus maxlength="100" placeholder="sdf"  name="h24"/><span class="count">0</span></p>
-    <div class="line"><span class="num">25.</span><input type="text" class="headline" id="h25" required autofocus maxlength="100" placeholder="This Video is Super Gross"  name="h25"/><span class="count">0</span></p>
+    <div class="line"><span class="num">21.</span><input type="text" class="hl" id="h21" required  placeholder="sdf"  name="h21"/><span class="count">0</span></p>
+    <div class="line"><span class="num">22.</span><input type="text" class="hl" id="h22" required  placeholder="sdf"  name="h22"/><span class="count">0</span></p>
+    <div class="line"><span class="num">23.</span><input type="text" class="hl" id="h23" required  placeholder="sdf"  name="h23"/><span class="count">0</span></p>
+    <div class="line"><span class="num">24.</span><input type="text" class="hl" id="h24" required  placeholder="sdf"  name="h24"/><span class="count">0</span></p>
+    <div class="line"><span class="num">25.</span><input type="text" class="hl" id="h25" required  placeholder="This Video is Super Gross"  name="h25"/><span class="count">0</span></p>
 
   <!-- this button should go to a PH style voting interface so you can let colleagues help you pick a headline.-->
   <input type="submit" class="feedback" value="Help me pick a headline">
