@@ -117,7 +117,7 @@ a.sel:hover, .sela {
   background-color:#2980B9;
 }
 
-.reset {
+/*.reset {
   border: none;
   background-color: #E74C3C;
   color: #FFF;
@@ -159,6 +159,42 @@ a.download {
 
 a.download:hover {
   background-color:#2980B9;
+}*/
+
+.download {
+  color:#2C3E50;
+  border:0.15rem solid #2C3E50;
+  padding: .5rem .75rem;
+  border-radius:4px;
+  margin:.5rem;
+  cursor:pointer;
+}
+
+a.download {
+  text-decoration:none;
+}
+
+a.download:hover {
+  color: #ECF0F1;
+  background-color:#2C3E50;
+}
+
+.reset {
+  color:#E74C3C;
+  border:0.15rem solid #E74C3C;
+  padding: .5rem .75rem;
+  border-radius:4px;
+  margin:.5rem;
+  cursor:pointer;
+}
+
+a.reset {
+  text-decoration:none;
+}
+
+a.reset:hover {
+  color: #ECF0F1;
+  background-color:#E74C3C;
 }
 
 /*------------------------------------------*/

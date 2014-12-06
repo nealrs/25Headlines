@@ -148,7 +148,7 @@ function saveData(){
 // restore form data & app state from localstorage
 function getData(){
   var data = JSON.parse(localStorage.getItem('data'));
-  console.log(data);
+  //console.log(data);
 
   if (data){
     console.log("ok, we found some data!");
