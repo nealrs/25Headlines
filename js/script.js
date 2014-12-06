@@ -40,6 +40,8 @@ $( document ).ready(function() {
   // debounced keyup handler for color checking & title casing & autosaving to localStorage
   $('.hl').on('keyup', _.debounce(function (e) {
     colorCheck($(this));
+    
+    // should i take this out? i dunno.
     $(this).val($(this).val().toTitleCase());
     saveData();
   }, 100));
