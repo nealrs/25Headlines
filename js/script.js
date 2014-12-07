@@ -20,6 +20,31 @@ String.prototype.toTitleCase = function(){
     });
   };
 
+/*
+Stack Overflow: http://stackoverflow.com/questions/19089442/convert-string-to-sentence-case-in-javascript
+*/
+String.prototype.toSentenceCase = function(){
+  //var string="Hi All, This Is Derp. Thank You All to Answer My Query";
+  var n=this.toLowerCase().split(".");
+  var vfinal="";
+  for(i=0;i<n.length;i++)
+    {
+      var spaceput="";
+      var spaceCount=n[i].replace(/^(\s*).*$/,"$1").length;
+      n[i]=n[i].replace(/^\s+/,"");
+      var newstring=n[i].charAt(n[i]).toUpperCase() + n[i].slice(1);
+      for(j=0;j<spaceCount;j++)
+        spaceput=spaceput+" ";
+        vfinal=vfinal+spaceput+newstring+".";
+      }
+      vfinal=vfinal.substring(0, vfinal.length - 1);
+      vfinal=vfinal.replace(/(\si'm\s)/, " I'm ");
+      vfinal=vfinal.replace(/(\si\s)/, " I ");
+
+      console.log(vfinal);
+      return vfinal;
+};
+
 /*------------And now, the stuff I actually wrote myself.-----------*/
 
 $( document ).ready(function() {
@@ -40,9 +65,16 @@ $( document ).ready(function() {
   // debounced keyup handler for color checking & title casing & autosaving to localStorage
   $('.hl').on('keyup', _.debounce(function (e) {
     colorCheck($(this));
-    
-    // should i take this out? i dunno.
-    $(this).val($(this).val().toTitleCase());
+
+    // if it's a headline, use title case, otherwise use sentence case.
+    if ( $("#selh").hasClass("sela") ){
+      $(this).val($(this).val().toTitleCase());
+      saveData();
+    } else {
+      $(this).val($(this).val().toSentenceCase());
+      saveData();
+    }
+
     saveData();
   }, 100));
 
@@ -63,6 +95,13 @@ $( document ).ready(function() {
       $('#len2').text(ho);
       $('#len3').text(hr);
       $('#contentType').text("Headlines");
+
+      // reapply title casing
+      $('.hl').each(function(k,v){
+        if(v.value){
+          v.value = v.value.toTitleCase();
+        }
+      });
     }
 
     if ( $(this)[0].id == "selt" ){
@@ -71,6 +110,13 @@ $( document ).ready(function() {
       $('#len2').text(to);
       $('#len3').text(tr);
       $('#contentType').text("Tweets");
+
+      // reapply sentence casing
+      $('.hl').each(function(k,v){
+        if(v.value){
+          v.value = v.value.toSentenceCase();
+        }
+      });
     }
 
     if ( $(this)[0].id == "sele" ){
@@ -79,6 +125,13 @@ $( document ).ready(function() {
       $('#len2').text(eo);
       $('#len3').text(er);
       $('#contentType').text("Subject lines");
+
+      // reapply sentence casing
+      $('.hl').each(function(k,v){
+        if(v.value){
+          v.value = v.value.toSentenceCase();
+        }
+      });
     }
 
     // recheck all inputs against length triggers
@@ -143,20 +196,22 @@ jQuery.fn.serializeObject = function () {
 // save form data to localstorage
 function saveData(){
   var data = $('#form').serializeObject();
-  //console.log(data);
+  console.log(data);
   localStorage.setItem('data', JSON.stringify(data));
 }
 
 // restore form data & app state from localstorage
 function getData(){
   var data = JSON.parse(localStorage.getItem('data'));
-  //console.log(data);
+  console.log(data);
 
   if (data){
     console.log("ok, we found some data!");
     $('.hl').each(function(k,v){
       v.value = data["h"+(k+1)];
       $(this).next(".count")[0].innerText = $(this).val().length;
+
+      console.log(v.value);
     });
     colorCheckAll();
   } else { console.log("womp womp - no data here.");}
