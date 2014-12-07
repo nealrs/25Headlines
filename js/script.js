@@ -38,7 +38,7 @@ String.prototype.toSentenceCase = function(){
         vfinal=vfinal+spaceput+newstring+".";
       }
       vfinal=vfinal.substring(0, vfinal.length - 1);
-      vfinal=vfinal.replace(/(\si'm\s)/, " I'm ");
+      vfinal=vfinal.replace(/(\si'\s)/, " I' ");
       vfinal=vfinal.replace(/(\si\s)/, " I ");
 
       console.log(vfinal);
