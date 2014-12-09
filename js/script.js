@@ -62,10 +62,14 @@ $( document ).ready(function() {
   // restore form data -- if available & recheck triggers!
   getData();
 
-  // debounced keyup handler for color checking & title casing & autosaving to localStorage
+  // debounced keyup handler for color checking & autosaving to localStorage
   $('.hl').on('keyup', _.debounce(function (e) {
     colorCheck($(this));
+    saveData();
+  }, 100));
 
+  // onblur handler for title casing / sentence casing.
+  $('.hl').on('blur', function(){
     // if it's a headline, use title case, otherwise use sentence case.
     if ( $("#selh").hasClass("sela") ){
       $(this).val($(this).val().toTitleCase());
@@ -74,9 +78,7 @@ $( document ).ready(function() {
       $(this).val($(this).val().toSentenceCase());
       saveData();
     }
-
-    saveData();
-  }, 100));
+  });
 
   // un-debounced keyup handler for character counting
   $('.hl').on('keyup', function(){
