@@ -235,7 +235,7 @@ function teaser(){
   "The social juice is worth the squeeze.",
   "There's always another angle.",
   "Copywriters aren't born. They practice.",
-  "Want more clicks? Practice your pitch.",
+  //"Practice your pitch for more clicks.",
   "They won't all be great, but one will."
   ];
   $("#teaser").text(t[Math.floor((Math.random() * t.length))]);
