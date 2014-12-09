@@ -115,50 +115,6 @@ a.sel:hover, .sela {
   background-color:#2980B9;
 }
 
-/*.reset {
-  border: none;
-  background-color: #E74C3C;
-  color: #FFF;
-  padding: .5rem 2rem;
-  width:40%;
-  outline: none;
-  text-align:center;
-  font-size:16px;
-  border-radius:4px;
-  cursor:pointer;
-}
-
-a.reset {
-  text-decoration:none;
-  color:#FFF;
-}
-
-a.reset:hover {
-  background-color:#B91E0E;
-}
-
-.download {
-  border: none;
-  background-color: #3498DB;
-  color: #FFF;
-  padding: .5rem 2rem;
-  width:30%;
-  outline: none;
-  text-align:center;
-  font-size:16px;
-  border-radius:4px;
-  cursor:pointer;
-}
-
-a.download {
-  text-decoration:none;
-  color:#FFF;
-}
-
-a.download:hover {
-  background-color:#2980B9;
-}*/
-
 .download {
   color:#2C3E50;
   border:0.15rem solid #2C3E50;
