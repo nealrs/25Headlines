@@ -38,7 +38,7 @@
 
 <body>
  <h1>25 <span id="contentType">Headlines</span></h1>
- <h3>Write more headlines, get more clicks.<br><span id="teaser"></span>
+ <h3 id="subHead">Write more headlines, get more clicks.<br><span id="teaser"></span>
  </h3>
  <!--<p style="margin-top:0; margin-bottom:0;">
   <iframe src="http://ghbtns.com/github-btn.html?user=nealrs&repo=25Headlines&type=watch&count=true"
@@ -47,7 +47,7 @@
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
  </p>-->
 
- <p>Inspired by <a href="http://www.slideshare.net/Upworthy/upworthy-10-ways-to-win-the-internets" target="_blank" title="Adam is one of the Upworthy guys, duh.">Upworthy</a> &amp; <a href="https://blog.kissmetrics.com/ultimate-home-page-headline/" target="_blank" title="KISSmetrics runs an excellent blog">KissMetrics</a>.</p>
+ <p id="credit">Inspired by <a href="http://www.slideshare.net/Upworthy/upworthy-10-ways-to-win-the-internets" target="_blank" title="Adam is one of the Upworthy guys, duh.">Upworthy</a> &amp; <a href="https://blog.kissmetrics.com/ultimate-home-page-headline/" target="_blank" title="KISSmetrics runs an excellent blog">KissMetrics</a>.</p>
 
  <div id="selectors" class="btnContainer">
   <h4>
@@ -85,7 +85,7 @@
   <div class="line"><span class="num">15.</span><input type="text" class="hl" id="h15" required placeholder="684,935 Bedbugs Agree, Your Apartment Is Infested" name="h15" spellcheck="true"/><span class="count">0</span></p>
 
   <div class="line"><span class="num">16.</span><input type="text" class="hl" id="h16" required placeholder="25 Reasons Why Manhattan Is Man-Has-Been" name="h16" spellcheck="true"/><span class="count">0</span></p>
-  <div class="line"><span class="num">17.</span><input type="text" class="hl" id="h17" required placeholder="Why SEO Gives marketers aneurysms" name="h17" spellcheck="true"/><span class="count">0</span></p>
+  <div class="line"><span class="num">17.</span><input type="text" class="hl" id="h17" required placeholder="Why SEO Gives Marketers Aneurysms" name="h17" spellcheck="true"/><span class="count">0</span></p>
   <div class="line"><span class="num">18.</span><input type="text" class="hl" id="h18" required placeholder="The Ultimate Twerking Compilation Video" name="h18" spellcheck="true"/><span class="count">0</span></p>
   <div class="line"><span class="num">19.</span><input type="text" class="hl" id="h19" required placeholder="The Brilliant, Super Fast Way to Shotgun a Beer" name="h19" spellcheck="true"/><span class="count">0</span></p>
   <div class="line"><span class="num">20.</span><input type="text" class="hl" id="h20" required placeholder="Rage Spend Like a Jilted Kardashian" name="h20" spellcheck="true"/><span class="count">0</span></p>
@@ -104,6 +104,7 @@
      <h4>
       <a id="reset" class="reset" title="Delete all headlines and begin again.">clear &amp; start over</a>
       <a id="download" class="download" title="Download all headlines in a text file.">download as .txt</a>
+      <!--<a id="share" class="download" title="Download &amp; share headlines">share &amp; export</a>-->
      </h4>
    </div>
  </form>
@@ -114,6 +115,7 @@
  <!-- JaVAVAVAVAVascript -->
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+ <script src="js/mousetrap.min.js"></script>
  <script src="js/script.js"></script>
 </body>
 </html>

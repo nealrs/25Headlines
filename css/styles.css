@@ -164,3 +164,19 @@ a.reset:hover {
   .count {display:none;}
   body{width:95%;}
 }
+
+.hide{display:none;}
+
+body:-webkit-full-screen {width:100%;}
+body:-moz-full-screen {width:100%;}
+body:-ms-full-screen {width:100%;}
+body:-o-full-screen {width:100%;}
+body:full-screen {width:100%;}
+body::backdrop{background-color:#ECF0F1;}
+
+
+html:-webkit-full-screen {background-color:#ECF0F1;}
+html:-moz-full-screen {background-color:#ECF0F1;}
+html:-ms-full-screen {background-color:#ECF0F1;}
+html:-o-full-screen {background-color:#ECF0F1;}
+html:full-screen {background-color:#ECF0F1;}

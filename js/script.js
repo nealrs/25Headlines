@@ -163,6 +163,13 @@ $( document ).ready(function() {
 
 });
 
+// handler for share button
+$("#share").on('click', function(){
+  console.log('share');
+
+
+});
+
 // length based color checking
 function colorCheck(e){
   if (e.val().length >= y && e.val().length < o){
@@ -205,18 +212,18 @@ function saveData(){
 // restore form data & app state from localstorage
 function getData(){
   var data = JSON.parse(localStorage.getItem('data'));
-  console.log(data);
+  //console.log(data);
 
   if (data){
-    console.log("ok, we found some data!");
+    //console.log("ok, we found some data!");
     $('.hl').each(function(k,v){
       v.value = data["h"+(k+1)];
       $(this).next(".count")[0].innerText = $(this).val().length;
 
-      console.log(v.value);
+      //console.log(v.value);
     });
     colorCheckAll();
-  } else { console.log("womp womp - no data here.");}
+  } //else {console.log("womp womp - no data here.");}
 }
 
 // reset form data & localstorage & app state.
@@ -240,3 +247,58 @@ function teaser(){
   ];
   $("#teaser").text(t[Math.floor((Math.random() * t.length))]);
 }
+
+// fullscreen helpers
+
+var tog=0;
+function launchIntoFullscreen(element) {
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+    tog=1;
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+    tog=1;
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+    tog=1;
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+    tog=1;
+  }
+}
+
+function exitFullscreen() {
+  if(document.exitFullscreen) {
+    document.exitFullscreen();
+    tog=0;
+  } else if(document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+    tog=0;
+  } else if(document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+    tog=0;
+  }
+}
+
+// keyboard shortcuts
+// Shift-H - headlines
+// Shift-T - tweets
+// Shift-E - email subject lines
+// ? - help
+// Shift-F - fullscreen toggle
+
+Mousetrap.bind('shift F', function() {
+  console.log('FullScreen Toggle');
+
+  if (tog!==0){
+    console.log("exit fs");
+    exitFullscreen();
+  } else {
+      console.log("launch fs");
+      launchIntoFullscreen(document.documentElement);
+    }
+  $("#subHead").toggleClass("hide");
+  $("#credit").toggleClass("hide");
+
+
+});
