@@ -320,6 +320,7 @@ function share() {
   //return id;
   // redirect to viewonly page.
   var myTimer = window.setTimeout(function() {
-    window.open("/v/index.html?id="+id);
+    //window.open("/v/index.html?id="+id); // localhost only?
+    window.open("/v?id="+id); // works on github.
   }, 500);
 }
