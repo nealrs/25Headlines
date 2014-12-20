@@ -168,7 +168,8 @@ $("#share").on('click', function(){
   //console.log('share click');
 
   // return ID of new firebase location & redirect page to template / with new path? nealrs.github.io/25Headlines/v?id=123456789
-  console.log("data located at:" + share());
+  //console.log("data located at:" + share());
+  share();
 });
 
 // length based color checking
@@ -315,6 +316,10 @@ function share() {
   var l = fbl.push(data);
   var id = (l.toString()).replace(/(.*?)data\//, ""); // id of firebase location
   //console.log(id);
-  
-  return id;
+
+  //return id;
+  // redirect to viewonly page.
+  var myTimer = window.setTimeout(function() {
+    window.open("/v/index.html?id="+id);
+  }, 500);
 }
