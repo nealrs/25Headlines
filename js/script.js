@@ -165,9 +165,10 @@ $( document ).ready(function() {
 
 // handler for share button
 $("#share").on('click', function(){
-  console.log('share');
+  //console.log('share click');
 
-
+  // return ID of new firebase location & redirect page to template / with new path? nealrs.github.io/25Headlines/v?id=123456789
+  console.log("data located at:" + share());
 });
 
 // length based color checking
@@ -205,7 +206,7 @@ jQuery.fn.serializeObject = function () {
 // save form data to localstorage
 function saveData(){
   var data = $('#form').serializeObject();
-  console.log(data);
+  //console.log(data);
   localStorage.setItem('data', JSON.stringify(data));
 }
 
@@ -302,3 +303,18 @@ Mousetrap.bind('shift F', function() {
 
 
 });
+
+// Export & Save data to Firebase for sharing (future: alery & don't export if array is empty) (or just hide the button????)
+function share() {
+  var data = $('#form').serializeObject();
+  data.type = $('#contentType').text();
+  data.timestamp = Firebase.ServerValue.TIMESTAMP;
+  //console.log(data);
+
+  var fbl = new Firebase('https://25h.firebaseio.com/data');
+  var l = fbl.push(data);
+  var id = (l.toString()).replace(/(.*?)data\//, ""); // id of firebase location
+  //console.log(id);
+  
+  return id;
+}
