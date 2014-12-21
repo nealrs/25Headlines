@@ -49,7 +49,7 @@ String.prototype.toSentenceCase = function(){
 
 $( document ).ready(function() {
   console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
-  teaser();
+  //teaser();
 
   // length triggers y - long, o - too long, r - max
   hy=50; ho=62; hr=100; //headline
@@ -87,7 +87,7 @@ $( document ).ready(function() {
 
   // handler for content type switching. also changes char counts & re-runs colorCheck.
   $(".sel").on('click', function(){
-    teaser();
+    //teaser();
     $(".sel").removeClass("sela");
     $(this).addClass("sela");
 
@@ -237,6 +237,7 @@ function clearData(){
   });
 }
 
+/*
 // teaser changer
 function teaser(){
   t=[
@@ -249,6 +250,7 @@ function teaser(){
   ];
   $("#teaser").text(t[Math.floor((Math.random() * t.length))]);
 }
+*/
 
 // fullscreen helpers
 
@@ -316,8 +318,6 @@ function share() {
   var l = fbl.push(data);
   var id = (l.toString()).replace(/(.*?)data\//, ""); // id of firebase location
   //console.log(id);
-
-  //return id;
   // redirect to viewonly page.
   var myTimer = window.setTimeout(function() {
     //window.open("/v/index.html?id="+id); // localhost only?
