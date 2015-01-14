@@ -8,9 +8,7 @@ After reading [Adam Mordecai](http://www.slideshare.net/Upworthy/upworthy-10-way
 
 Depending on what type of content you're working on, the app will set character count triggers that color code your headlines. Yellow means you've passed the optimal length. Orange means you're headline is too long. And red means you've reached the maximum character limit. 
 
-Additionally, headlines are automatically title cased, while tweets and subject lines are kept in sentence case. 
-
-Your data is autosaved using localStorage, so you don't have to worry about losing any of your great prose and you can download your headlines as a .txt file anytime.
+Your data is autosaved using localStorage, so you don't have to worry about losing any of your great prose and you can share your headlines/tweets/subject lines with a public URL.
 
 ## Challenges I ran into
 
@@ -22,10 +20,10 @@ I had an idea, and I implemented it &mdash; that's always huge for me. Also, I'v
 
 ## What I learned
 
-I had to create a sentence casing class, and using some code from SO, I learned how to extend the String prototype. All new stuff to me.
+I had to create a sentence casing class, and using some code from SO, I learned how to extend the String prototype. All new stuff to me. (removed as of 1/13/2015)
 
 ## What's next for 25Headlines
 
 I've got a few ideas below, but I'd love to hear from _you_. 
 
-I'd like to add a progress meter  / gamification to provide some encouragement to writers &mdash; you don't want people to quit at #15.  Also, I've been thinking about a voting system (PH / HNstyle) so you can get feedback form your colleagues before you pick something. Also, maybe a way to connect this to Hootsuite or Optimizely. Oh and I might also push this through MacGap to create a desktop app, who knows?
+I'd like to add a progress meter/ gamification to provide some encouragement to writers &mdash; you don't want people to quit at #15.  Also, I've been thinking about a voting system (PH / HNstyle) so you can get feedback form your colleagues before you pick something. Also, maybe a way to connect this to Hootsuite or Optimizely. Oh and I might also push this through MacGap to create a desktop app, who knows?
