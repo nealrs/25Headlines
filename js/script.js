@@ -49,15 +49,12 @@ String.prototype.toSentenceCase = function(){
 
 $( document ).ready(function() {
   console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
-  //teaser();
 
   // length triggers y - long, o - too long, r - max
-  hy=50; ho=62; hr=100; //headline
-  ty=100; to=120; tr=140; //tweet
-  ey=35; eo=40; er=50; //email
-
-  y=hy; o=ho; r=hr; $('input').attr('maxlength', r);
-  yc="#f1c40f"; oc="#e67e22"; rc="#E74C3C"; tc="transparent";
+  y=$('#len1').text(); yc="#f1c40f";
+  o=$('#len2').text(); oc="#e67e22";
+  r=$('#len3').text(); rc="#E74C3C";
+  $('input').attr('maxlength', r); tc="transparent";
 
   // restore form data -- if available & recheck triggers!
   getData();
@@ -68,76 +65,9 @@ $( document ).ready(function() {
     saveData();
   }, 100));
 
-  // onblur handler for title casing / sentence casing.
-  $('.hl').on('blur', function(){
-    // if it's a headline, use title case, otherwise use sentence case.
-    if ( $("#selh").hasClass("sela") ){
-      $(this).val($(this).val().toTitleCase());
-      saveData();
-    } else {
-      $(this).val($(this).val().toSentenceCase());
-      saveData();
-    }
-  });
-
   // un-debounced keyup handler for character counting
   $('.hl').on('keyup', function(){
     $(this).next(".count")[0].innerText = $(this).val().length;
-  });
-
-  // handler for content type switching. also changes char counts & re-runs colorCheck.
-  $(".sel").on('click', function(){
-    //teaser();
-    $(".sel").removeClass("sela");
-    $(this).addClass("sela");
-
-    if ( $(this)[0].id == "selh" ){
-      y=hy; o=ho; r=hr; $('input').attr('maxlength', r);
-      $('#len1').text(hy);
-      $('#len2').text(ho);
-      $('#len3').text(hr);
-      $('#contentType').text("Headlines");
-
-      // reapply title casing
-      $('.hl').each(function(k,v){
-        if(v.value){
-          v.value = v.value.toTitleCase();
-        }
-      });
-    }
-
-    if ( $(this)[0].id == "selt" ){
-      y=ty; o=to; r=tr; $('input').attr('maxlength', r);
-      $('#len1').text(ty);
-      $('#len2').text(to);
-      $('#len3').text(tr);
-      $('#contentType').text("Tweets");
-
-      // reapply sentence casing
-      $('.hl').each(function(k,v){
-        if(v.value){
-          v.value = v.value.toSentenceCase();
-        }
-      });
-    }
-
-    if ( $(this)[0].id == "sele" ){
-      y=ey; o=eo; r=er; $('input').attr('maxlength', r);
-      $('#len1').text(ey);
-      $('#len2').text(eo);
-      $('#len3').text(er);
-      $('#contentType').text("Subject lines");
-
-      // reapply sentence casing
-      $('.hl').each(function(k,v){
-        if(v.value){
-          v.value = v.value.toSentenceCase();
-        }
-      });
-    }
-
-    // recheck all inputs against length triggers
-    colorCheckAll();
   });
 
   // handler for reset button
@@ -208,12 +138,30 @@ jQuery.fn.serializeObject = function () {
 function saveData(){
   var data = $('#form').serializeObject();
   //console.log(data);
-  localStorage.setItem('data', JSON.stringify(data));
+
+  if( $('#contentType').text() == "Headlines" ){
+    localStorage.setItem('dataH', JSON.stringify(data));
+  }
+  else if ( $('#contentType').text() == "Tweets" ){
+    localStorage.setItem('dataT', JSON.stringify(data));
+  }
+  else if ( $('#contentType').text() == "Subject lines" ){
+    localStorage.setItem('dataE', JSON.stringify(data));
+  }
 }
 
 // restore form data & app state from localstorage
 function getData(){
-  var data = JSON.parse(localStorage.getItem('data'));
+
+  if( $('#contentType').text() == "Headlines" ){
+    data = JSON.parse(localStorage.getItem('dataH'));
+  }
+  else if ( $('#contentType').text() == "Tweets" ){
+    data = JSON.parse(localStorage.getItem('dataT'));
+  }
+  else if ( $('#contentType').text() == "Subject lines" ){
+    data = JSON.parse(localStorage.getItem('dataE'));
+  }
   //console.log(data);
 
   if (data){
@@ -236,21 +184,6 @@ function clearData(){
     v.innerText="0";
   });
 }
-
-/*
-// teaser changer
-function teaser(){
-  t=[
-  "You gotta kiss a few frogs, #amirite?",
-  "The social juice is worth the squeeze.",
-  "There's always another angle.",
-  "Copywriters aren't born. They practice.",
-  //"Practice your pitch for more clicks.",
-  "They won't all be great, but one will."
-  ];
-  $("#teaser").text(t[Math.floor((Math.random() * t.length))]);
-}
-*/
 
 // fullscreen helpers
 
@@ -307,7 +240,7 @@ Mousetrap.bind('shift F', function() {
 
 });
 
-// Export & Save data to Firebase for sharing (future: alery & don't export if array is empty) (or just hide the button????)
+// Export & Save data to Firebase for sharing (future: alert & don't export if array is empty) (or just hide the button????)
 function share() {
   var data = $('#form').serializeObject();
   data.type = $('#contentType').text();
