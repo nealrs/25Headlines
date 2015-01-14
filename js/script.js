@@ -162,15 +162,12 @@ function getData(){
   else if ( $('#contentType').text() == "Subject lines" ){
     data = JSON.parse(localStorage.getItem('dataE'));
   }
-  //console.log(data);
 
   if (data){
-    //console.log("ok, we found some data!");
     $('.hl').each(function(k,v){
       v.value = data["h"+(k+1)];
       $(this).next(".count")[0].innerText = $(this).val().length;
 
-      //console.log(v.value);
     });
     colorCheckAll();
   } //else {console.log("womp womp - no data here.");}
@@ -245,12 +242,10 @@ function share() {
   var data = $('#form').serializeObject();
   data.type = $('#contentType').text();
   data.timestamp = Firebase.ServerValue.TIMESTAMP;
-  //console.log(data);
 
   var fbl = new Firebase('https://25h.firebaseio.com/data');
   var l = fbl.push(data);
   var id = (l.toString()).replace(/(.*?)data\//, ""); // id of firebase location
-  //console.log(id);
   // redirect to viewonly page.
   var myTimer = window.setTimeout(function() {
     //window.open("/v/index.html?id="+id); // localhost only?
