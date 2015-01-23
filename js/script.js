@@ -1,52 +1,3 @@
-/*
-* To Title Case 2.1 – http://individed.com/code/to-title-case/
-* Copyright © 2008–2013 David Gouch. Licensed under the MIT License.
-*/
-
-String.prototype.toTitleCase = function(){
-  var smallWords = /^(a|an|and|as|at|but|by|en|for|if|in|nor|of|on|or|per|the|to|vs?\.?|via)$/i;
-
-  return this.replace(/[A-Za-z0-9\u00C0-\u00FF]+[^\s-]*/g, function(match, index, title){
-    if (index > 0 && index + match.length !== title.length &&
-      match.search(smallWords) > -1 && title.charAt(index - 2) !== ":" &&
-      (title.charAt(index + match.length) !== '-' || title.charAt(index - 1) === '-') &&
-      title.charAt(index - 1).search(/[^\s-]/) < 0) {
-        return match.toLowerCase();
-      }
-      if (match.substr(1).search(/[A-Z]|\../) > -1) {
-        return match;
-      }
-      return match.charAt(0).toUpperCase() + match.substr(1);
-    });
-  };
-
-/*
-Stack Overflow: http://stackoverflow.com/questions/19089442/convert-string-to-sentence-case-in-javascript
-*/
-String.prototype.toSentenceCase = function(){
-  //var string="Hi All, This Is Derp. Thank You All to Answer My Query";
-  var n=this.toLowerCase().split(".");
-  var vfinal="";
-  for(i=0;i<n.length;i++)
-    {
-      var spaceput="";
-      var spaceCount=n[i].replace(/^(\s*).*$/,"$1").length;
-      n[i]=n[i].replace(/^\s+/,"");
-      var newstring=n[i].charAt(n[i]).toUpperCase() + n[i].slice(1);
-      for(j=0;j<spaceCount;j++)
-        spaceput=spaceput+" ";
-        vfinal=vfinal+spaceput+newstring+".";
-      }
-      vfinal=vfinal.substring(0, vfinal.length - 1);
-      vfinal=vfinal.replace(/(\si'\s)/, " I' ");
-      vfinal=vfinal.replace(/(\si\s)/, " I ");
-
-      console.log(vfinal);
-      return vfinal;
-};
-
-/*------------And now, the stuff I actually wrote myself.-----------*/
-
 $( document ).ready(function() {
   console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
 
@@ -54,6 +5,7 @@ $( document ).ready(function() {
   y=$('#len1').text(); yc="#f1c40f";
   o=$('#len2').text(); oc="#e67e22";
   r=$('#len3').text(); rc="#E74C3C";
+  sc="repeating-linear-gradient(45deg, #DDDDDD, #DDDDDD 10px, #f1c40f 10px, #f1c40f 20px";
   $('input').attr('maxlength', r); tc="transparent";
 
   // restore form data -- if available & recheck triggers!
@@ -105,16 +57,19 @@ $("#share").on('click', function(){
 // length based color checking
 function colorCheck(e){
   if (e.val().length >= y && e.val().length < o){
-    e.css("background-color", yc);
+    e.css("background", yc);
   }
   if (e.val().length >= o){
-    e.css("background-color", oc);
+    e.css("background", oc);
   }
   if (e.val().length >= r){
-    e.css("background-color", rc);
+    e.css("background", rc);
   }
   if (e.val().length < y){
-    e.css("background-color", tc);
+    e.css("background", tc);
+  }
+  if ( $('#contentType').text() == "Subject lines" && spammy( " "+e.val()+" " ) ){
+    e.css("background", sc);
   }
 }
 

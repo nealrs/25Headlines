@@ -63,6 +63,16 @@ a.sel:hover, .sela {
   vertical-align: middle;
 }
 
+.spam {
+  display: inline;
+  /*width: 2rem;*/
+  margin-left: .3rem;
+  padding: .3rem;
+  text-align: center;
+  vertical-align: middle;
+  color:#E74C3C;
+}
+
 .hl {
   border: none;
   background-color: transparent;
@@ -96,6 +106,7 @@ a.sel:hover, .sela {
 .leny {background-color:#f1c40f;}
 .leno {background-color:#e67e22;}
 .lenr {background-color:#E74C3C;}
+.lens {background: repeating-linear-gradient(45deg, #DDDDDD, #DDDDDD 10px, #f1c40f 10px, #f1c40f 20px); width: auto !important;}
 
 .feedback {
   border: none;
@@ -155,13 +166,13 @@ a.reset:hover {
 
 @media only screen and (max-width: 767px) {
   /* phones */
-  .count {display:none;}
+  .count{display:none;}
   body{width:95%;}
 }
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   /* portrait phones */
-  .count {display:none;}
+  .count{display:none;}
   body{width:95%;}
 }
 
