@@ -32,14 +32,14 @@ $( document ).ready(function() {
   $("#download").on('click', function(){
     // http://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
 
-    var pl=new Date().toLocaleString()+" | 25 Headlines | Made by Neal Shyam\n\n";
+    var pl=new Date().toLocaleString()+" | 25 Headlines | Made by Neal Shyam (nealshyam.com)\n\n";
     $('.hl').each(function(k,v){
-      pl += (k+1) +". "+ v.value+"\n";
+      pl += v.value+"\n";
     });
 
     var dl = document.createElement('a');
     dl.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(pl));
-    dl.setAttribute('download', "25Headlines.txt");
+    dl.setAttribute('download', "25Headlines_Export.txt");
     dl.click();
   });
 
