@@ -83,6 +83,53 @@ $( document ).ready(function() {
     colorCheckAll();
   }
 
+  $( document ).ready(function() {
+    console.log("Thanks for using 25 Headlines! ~ Neal Shyam");
+  
+    // length triggers y - long, o - too long, r - max
+    y=$('#len1').text(); yc="#f1c40f";
+    o=$('#len2').text(); oc="#e67e22";
+    r=$('#len3').text(); rc="#E74C3C";
+    sc="repeating-linear-gradient(45deg, #DDDDDD, #DDDDDD 10px, #f1c40f 10px, #f1c40f 20px";
+    $('input').attr('maxlength', r); tc="transparent";
+  
+    // restore form data -- if available & recheck triggers!
+   // getData();
+  
+    // debounced keyup handler for color checking & autosaving to localStorage
+    $('.hl').on('keyup', _.debounce(function (e) {
+      colorCheck($(this));
+      saveData();
+    }, 100));
+  
+    // un-debounced keyup handler for character counting
+    $('.hl').on('keyup', function(){
+      $(this).next(".count")[0].innerText = $(this).val().length;
+    });
+  
+    // handler for reset button
+    $("#reset").on('click', function(){
+      $('form')[0].reset();
+      clearData();
+    });
+  
+    // handler for download button
+    $("#download").on('click', function(){
+      // http://stackoverflow.com/questions/3665115/create-a-file-in-memory-for-user-to-download-not-through-server
+  
+      var pl=new Date().toLocaleString()+" | 25 Headlines | Made by Neal Shyam (nealshyam.com)\n\n";
+      $('.hl').each(function(k,v){
+        pl += v.value+"\n";
+      });
+  
+      var dl = document.createElement('a');
+      dl.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(pl));
+      dl.setAttribute('download', "25Headlines_Export.txt");
+      dl.click();
+    });
+  
+  });
+
 });
 
 // length based color checking
