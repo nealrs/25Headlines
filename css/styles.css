@@ -17,6 +17,14 @@ p {
   font-family: 'Lato', sans-serif;
 }
 
+.applink{
+  line-height: 1.6rem;
+  border:0.05rem solid #2C3E50;
+  padding: .5rem .75rem;
+  border-radius:4px;
+  margin:.5rem;
+}
+
 a {color: #2980B9;}
 a:active, a:hover {color: #E74C3C;}
 /*a:visited {color: #85144B;}*/
