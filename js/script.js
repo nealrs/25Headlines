@@ -66,10 +66,12 @@ $("#download").on('click', function(){
 });
 
 // handler for share button
+/*
 $("#share").on('click', function(){
   //console.log('share click');
   share();
 });
+*/
 
 // length based color checking
 function colorCheck(e){
